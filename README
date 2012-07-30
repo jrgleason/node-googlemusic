@@ -1,1 +1,19 @@
 This is currently under Development but will eventually be an API for searching, accessing, and streaming music stored in one's Google Music account.
+
+
+Example...
+
+app.get('/', function(res, req){
+  getCookie.execute(
+    function(err,dsh,galx,cookie){
+      logon.execute(dsh,galx, username, password, cookie,
+        function(err,cookie){
+          checkCookie.execute(cookie,function(err,cookie){
+            manageAccount.execute(cookie, function(err,cookie){
+              console.log(cookie)
+            })
+          })
+        })
+    })
+})
+
